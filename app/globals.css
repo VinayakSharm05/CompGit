@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* ── Dark IDE theme ──────────────────────────────────────────────────
+   Flat surfaces, hairline borders, syntax-flavoured accents.
+   No shadows, no gradients, 2px radii at most.                        */
+@theme {
+  --color-canvas: #0b0d10;
+  --color-panel: #101318;
+  --color-panel-2: #141922;
+  --color-line: #1c2128;
+  --color-line-2: #2a313b;
+  --color-ink: #e4e7eb;
+  --color-muted: #8b939e;
+  --color-faint: #5b636d;
+  --color-accent: #7cc4ff;
+  --color-add: #6fcf8a;
+  --color-del: #f2777a;
+  --color-warn: #e2b341;
+
+  --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "SF Mono",
+    Menlo, Consolas, monospace;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-xs: 2px;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus ring: visible for keyboard users, not mouse clicks. */
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+::selection {
+  background: #23405a;
+}
+
+/* Thin scrollbars so panels don't get chunky grey bars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-2) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-line-2);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Native form controls inherit the theme instead of fighting it. */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  tab-size: 2;
+}
